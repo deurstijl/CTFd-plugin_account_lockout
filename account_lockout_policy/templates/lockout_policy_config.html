@@ -1,0 +1,70 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<div class="bg-light p-4 mb-4 rounded">
+    <div class="container">
+        <h1 class="text-center">Account Lockout Policy</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="container">
+        <form method="POST">
+      
+          <!-- Centered Checkbox -->
+          <div class="row mb-4">
+            <div class="col text-center">
+              <div class="form-check d-inline-block">
+                <input class="form-check-input" type="checkbox" name="enable_lockout_policy" id="enable_lockout_policy" checked>
+                <label class="form-check-label" for="enable_lockout_policy">
+                  Enable account lockout policy
+                </label>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Number of failed logins -->
+          <div class="row mb-3 align-items-center">
+            <label class="col-sm-6 col-form-label text-end" for="failed_logins">
+              Number of failed logins before lockout:
+            </label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" name="failed_logins" id="failed_logins" value="5">
+            </div>
+          </div>
+      
+          <!-- Lockout time -->
+          <div class="row mb-3 align-items-center">
+            <label class="col-sm-6 col-form-label text-end" for="lockout_time">
+              Lockout time in minutes:
+            </label>
+            <div class="col-sm-4">
+              <input type="number" class="form-control" name="lockout_time" id="lockout_time" value="1">
+            </div>
+          </div>
+      
+          <!-- Submit button -->
+          <div class="row">
+            <div class="col-sm-10 offset-sm-6">
+              <input type="submit" class="btn btn-primary" value="Save Policy">
+            </div>
+          </div>
+      
+        </form>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="mt-3 text-center">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+            </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+</div>
+
+{% endblock %}
+
+

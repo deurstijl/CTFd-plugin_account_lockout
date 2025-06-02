@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Account Locked</h1>
+  <p>You have entered an incorrect password too many times. Please try again in {{ lockouttime }} minutes.</p>
+</div>
+{% endblock %}s

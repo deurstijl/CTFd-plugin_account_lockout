@@ -1,0 +1,6 @@
+[
+	{
+	    "name": "Account Lockout Policy",
+	    "route": "/admin/lockout_policy"
+	}
+]
