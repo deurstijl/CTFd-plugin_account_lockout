@@ -69,7 +69,7 @@ def define_docker_admin(app):
     def track_failed_logins(response):
         if request.endpoint == "auth.login" and request.method == "POST":
             if not get_policy_config()['enable_lockout_policy']:
-                return
+                return response
 
             username = request.form.get("name")
             user = Users.query.filter_by(name=username).first()
